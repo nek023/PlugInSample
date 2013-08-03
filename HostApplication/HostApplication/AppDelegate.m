@@ -25,6 +25,10 @@
     NSError *error = nil;
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:plugInsPath error:&error];
     
+    if (contents.count == 0) {
+        NSLog(@"No plug-ins found in: %@", plugInsPath);
+    }
+    
     for (NSString *content in contents) {
         NSLog(@"Loading bundle: %@", content);
         
